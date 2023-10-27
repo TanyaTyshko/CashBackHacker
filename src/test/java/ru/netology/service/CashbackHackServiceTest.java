@@ -5,7 +5,7 @@ import org.testng.Assert;
 public class CashbackHackServiceTest {
 
     @org.testng.annotations.Test
-    public void testFinalBoundary() {
+    public void shouldCalculateAmountOfAditionBuyIfBuyEquals1000() {
         CashbackHackService service = new CashbackHackService();
         int amount = 1000;
 
@@ -16,7 +16,7 @@ public class CashbackHackServiceTest {
     }
 
     @org.testng.annotations.Test
-    public void testBuyOneHundredMore() {
+    public void shouldCalculateAmountOfAditionBuyIfBuyUnder1000() {
         CashbackHackService service = new CashbackHackService();
         int amount = 900;
 
@@ -28,23 +28,23 @@ public class CashbackHackServiceTest {
     }
 
     @org.testng.annotations.Test
-    public void testBuyOneMore() {
+    public void shouldCalculateAmountOfAditionBuyIfBuyAfter1000() {
         CashbackHackService service = new CashbackHackService();
-        int amount = 999;
+        int amount = 1450;
 
         int actual = service.remain(amount);
-        int expected = 1;
+        int expected = 550;
 
         Assert.assertEquals(actual, expected);
     }
 
     @org.testng.annotations.Test
-    public void testBuyOneHundredAndOne() {
+    public void shouldCalculateAmountOfAditionBuyAtTheBorder() {
         CashbackHackService service = new CashbackHackService();
-        int amount = 899;
+        int amount = 999;
 
         int actual = service.remain(amount);
-        int expected = 101;
+        int expected = 1;
 
         Assert.assertEquals(actual, expected);
     }
